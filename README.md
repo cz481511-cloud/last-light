@@ -11,7 +11,7 @@
 
 ## 遊玩
 
-- 線上遊玩：開啟本專案的 GitHub Pages 網址
+- 線上遊玩：**https://cz481511-cloud.github.io/last-light/**
 - 本機遊玩：下載後直接雙擊 `index.html`
 
 建議戴上耳機、關燈遊玩。本遊戲含突然的驚嚇畫面與聲音。
