@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<title>最後的燈火</title>
+<meta name="description" content="第一人稱末日恐怖生存遊戲。病毒爆發，你分不清前面的是人，還是它。每次只有兩個選擇，選錯就會死。">
+<meta property="og:title" content="最後的燈火">
+<meta property="og:description" content="你分不清前面的，是人，還是它。每次只有兩個選擇，選錯就會死。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<canvas id="world"></canvas>
+
+<div id="fx-grain" class="fx"></div>
+<div id="fx-scan" class="fx"></div>
+<div id="fx-vignette" class="fx"></div>
+<div id="fx-red" class="fx"></div>
+
+<div id="hud">
+  <div id="hud-chapter"></div>
+  <div id="hud-right">
+    <span id="hud-res"></span>
+    <button id="btn-sound" class="mini">聲音：開</button>
+  </div>
+</div>
+
+<div id="clues"></div>
+<div id="toast"></div>
+
+<div id="dialog" class="hidden">
+  <div id="lines"></div>
+  <div id="hints"></div>
+  <div id="timer"><i></i></div>
+  <div id="choices" class="choices"></div>
+</div>
+
+<!-- 標題 -->
+<div id="screen-title" class="screen">
+  <div class="title-wrap">
+    <h1 class="title">最後的燈火</h1>
+    <div class="sub">L A S T &nbsp; L I G H T</div>
+    <div class="choices col">
+      <button id="btn-new">新的遊戲</button>
+      <button id="btn-continue">繼續</button>
+    </div>
+    <p class="howto">移動滑鼠／手指操控手電筒，光照久一點會發現線索<br>每次只有兩個選擇。選錯，就會死。</p>
+    <p class="warn">建議戴上耳機、關燈遊玩<br>本遊戲含突然的驚嚇畫面與聲音</p>
+  </div>
+</div>
+
+<!-- 章節卡 -->
+<div id="screen-card" class="screen">
+  <div class="card-wrap">
+    <div id="card-no"></div>
+    <div id="card-title"></div>
+    <div id="card-tip"></div>
+  </div>
+</div>
+
+<!-- 死亡 -->
+<div id="screen-death" class="screen">
+  <div class="death-wrap">
+    <h1 class="dead" data-text="你死了">你死了</h1>
+    <p id="death-text"></p>
+    <p id="death-rule"></p>
+    <p id="death-count"></p>
+    <div class="choices"><button id="btn-retry">重新開始本章</button></div>
+  </div>
+</div>
+
+<!-- 夥伴加入 -->
+<div id="screen-join" class="screen">
+  <div class="join-card">
+    <div class="join-sub">— 倖存者 —</div>
+    <h2 id="join-name"></h2>
+    <div id="join-role"></div>
+    <p id="join-line"></p>
+    <div id="join-tag"></div>
+    <div id="join-count"></div>
+    <div class="choices"><button id="btn-join">歡迎回家</button></div>
+  </div>
+</div>
+
+<!-- 庇護所夜晚 -->
+<div id="screen-shelter" class="screen">
+  <div class="shelter-panel">
+    <div class="sh-head">
+      <h2 id="sh-title"></h2>
+      <div id="sh-res"></div>
+    </div>
+    <div id="sh-people"></div>
+    <div id="sh-fac"></div>
+    <div id="sh-log"></div>
+    <div id="sh-choices" class="choices"></div>
+  </div>
+</div>
+
+<!-- 試玩結束 -->
+<div id="screen-end" class="screen">
+  <div class="end-wrap">
+    <h1 class="end-title">試玩版 · 完</h1>
+    <p id="end-stats"></p>
+    <p class="end-next">第三章〈擴張〉製作中……<br>無線電裡，有人在回應你。</p>
+    <div class="choices col"><button id="btn-end-restart">重新開始</button></div>
+  </div>
+</div>
+
+<canvas id="scare"></canvas>
+
+<noscript><div class="noscript">這個遊戲需要開啟 JavaScript 才能遊玩。</div></noscript>
+
+<script src="js/audio.js?v=1"></script>
+<script src="js/render.js?v=1"></script>
+<script src="js/story.js?v=1"></script>
+<script src="js/shelter.js?v=1"></script>
+<script src="js/engine.js?v=1"></script>
+</body>
+</html>

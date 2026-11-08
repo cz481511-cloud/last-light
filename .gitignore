@@ -1,0 +1,18 @@
+# 本機工具設定（不要上傳）
+.claude/
+.vscode/
+.idea/
+
+# 企劃書（含劇透，不公開）
+PRD.md
+
+# 系統檔
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 機密資料（以防萬一）
+.env
+.env.*
+*.key
+*.pem
